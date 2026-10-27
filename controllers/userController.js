@@ -3,7 +3,7 @@ const { Users } = require('../database/models')
 const createUser = async (req, res) =>{
     try {
         return res.status(200).json({
-            success:false,
+            success:true,
             msg: "User Created"
         })
     } catch (error) {
@@ -14,6 +14,6 @@ const createUser = async (req, res) =>{
     }
 }
 
-model.exports = {
+module.exports = {
     createUser      
 }
