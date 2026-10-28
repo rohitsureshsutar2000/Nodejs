@@ -3,3 +3,7 @@ const userDao = require("../dao/userDao")
 exports.getAllUser = (req, next) => {
     userDao.getAllUser(req, next);
 }
+
+exports.getUserById = (req, next) => {
+    userDao.getUserById(req, next);
+}
