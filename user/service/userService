@@ -1,0 +1,5 @@
+const userDao = require("../dao/userDao")
+
+exports.getAllUser = (req, next) => {
+    userDao.getAllUser(req, next);
+}
