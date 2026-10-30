@@ -15,7 +15,7 @@ exports.getUserById = async (req, next) => {
     const { id } = req.query
     let data = await Users.findOne({
         where: { id: id },
-        attributes: ["name"]
+        attributes: ["name"] // only return mentioned columns
     })
 
     if (data) {
