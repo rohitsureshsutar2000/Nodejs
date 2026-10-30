@@ -25,3 +25,31 @@ exports.getUserById = async (req, next) => {
     }
 
 }
+
+
+exports.deleteAllUsers = async (req, next) => {
+    let data = await Users.destroy({
+        where: {}
+    })
+
+    if (data) {
+        next(null, data)
+    } else {
+        next()
+    }
+
+}
+
+exports.deleteById = async (req, next) => {
+    const { id } = req.query
+    let data = await Users.destroy({
+        where: { id: id }
+    })
+
+    if (data) {
+        next(null, data)
+    } else {
+        next()
+    }
+
+}

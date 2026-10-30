@@ -7,3 +7,11 @@ exports.getAllUser = (req, next) => {
 exports.getUserById = (req, next) => {
     userDao.getUserById(req, next);
 }
+
+exports.deleteById = (req, next) => {
+    userDao.deleteById(req, next);
+}
+
+exports.deleteUsers = (req, next) => {
+    userDao.deleteAllUsers(req, next);
+}
