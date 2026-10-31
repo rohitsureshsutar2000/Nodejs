@@ -66,7 +66,7 @@ exports.updateUserDetails = async (req, next) => {
         where: { id: id }
     })
 
-    if (data && data[0] === 1) {
+    if (data) {
         next(null, data)
     } else {
         next()

@@ -5,7 +5,7 @@ exports.getUser = (req, res) => {
         if (error) return error;
 
         if (!data || data.length === 0) {
-           return res.status(204).send()
+            return res.status(204).send()
         }
 
         return res.status(200).json({
@@ -96,9 +96,16 @@ exports.updateUserDetails = (req, res) => {
             });
         };
 
-        return res.status(200).json({
-            success: true,
-            msg: "User upated"
+        if (data && data[0] === 1) {
+            return res.status(200).json({
+                success: true,
+                msg: "User upated"
+            })
+        }
+
+        return res.status(404).json({
+            success: false,
+            msg: "User not updated"
         })
     })
 }
