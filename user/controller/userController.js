@@ -99,7 +99,7 @@ exports.updateUserDetails = (req, res) => {
         if (data && data[0] === 1) {
             return res.status(200).json({
                 success: true,
-                msg: "User upated"
+                msg: "User updated"
             })
         }
 
