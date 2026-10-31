@@ -53,3 +53,23 @@ exports.deleteById = async (req, next) => {
     }
 
 }
+
+exports.updateUserDetails = async (req, next) => {
+    const { id, name, email, status} = req.body
+
+    // .update({},{}) it takes two obj 1st take field that what to update, 2nd takes where condition
+
+    let data = await Users.update({
+        name, email, status         
+    },
+        {
+        where: { id: id }
+    })
+
+    if (data && data[0] === 1) {
+        next(null, data)
+    } else {
+        next()
+    }
+
+}

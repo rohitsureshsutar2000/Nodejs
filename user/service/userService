@@ -15,3 +15,7 @@ exports.deleteById = (req, next) => {
 exports.deleteUsers = (req, next) => {
     userDao.deleteAllUsers(req, next);
 }
+
+exports.updateUserDetails = (req, next) => {
+    userDao.updateUserDetails(req, next);
+}

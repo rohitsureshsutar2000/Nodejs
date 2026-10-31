@@ -86,3 +86,23 @@ exports.deleteAllUser = (req, res) => {
 const deleteAllUser = (req, res, next) => {
     userService.deleteUsers(req, next);
 }
+
+exports.updateUserDetails = (req, res) => {
+    updateUserDetails(req, res, (error, data) => {
+        if (error) {
+            return res.status(500).json({
+                success: false,
+                error: error || "Internal server error"
+            });
+        };
+
+        return res.status(200).json({
+            success: true,
+            msg: "User upated"
+        })
+    })
+}
+
+const updateUserDetails = (req, res, next) => {
+    userService.updateUserDetails(req, next);
+}
