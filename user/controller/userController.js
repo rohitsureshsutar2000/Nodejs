@@ -68,9 +68,9 @@ const deleteUserById = (req, res, next) => {
 
 
 exports.deleteAllUser = (req, res) => {
-    deleteAllUser(req, res, (error, data) => {
+    deleteAllUser(req, res, (error, data, statuscode) => {
         if (error) {
-            return res.status(500).json({
+            return res.status(statuscode || 500).json({
                 success: false,
                 error: error || "Internal server error"
             });

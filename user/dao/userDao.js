@@ -28,14 +28,19 @@ exports.getUserById = async (req, next) => {
 
 
 exports.deleteAllUsers = async (req, next) => {
-    let data = await Users.destroy({
-        where: {}
-    })
+    try {
+        let data = await Users.destroy({
+            where: {}
+        })
 
-    if (data) {
-        next(null, data)
-    } else {
-        next()
+        if (data) {
+            next(null, data)
+        } else {
+            next("Error while delete all users")
+        }
+
+    } catch (error) {
+        return next(error, data, 500)
     }
 
 }
@@ -55,16 +60,16 @@ exports.deleteById = async (req, next) => {
 }
 
 exports.updateUserDetails = async (req, next) => {
-    const { id, name, email, status} = req.body
+    const { id, name, email, status } = req.body
 
     // .update({},{}) it takes two obj 1st take field that what to update, 2nd takes where condition
 
     let data = await Users.update({
-        name, email, status         
+        name, email, status
     },
         {
-        where: { id: id }
-    })
+            where: { id: id }
+        })
 
     if (data) {
         next(null, data)
