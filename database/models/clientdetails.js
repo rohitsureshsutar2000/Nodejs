@@ -14,7 +14,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   ClientDetails.init({
-    mobile: DataTypes.STRING
+    mobile: DataTypes.STRING,
+    clientId: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Clients',
+            key: 'id'
+        },
+        onDelete: 'CASCADE'
+    }
   }, {
     sequelize,
     modelName: 'ClientDetails',

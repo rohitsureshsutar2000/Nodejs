@@ -9,6 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      clientId: {
+        type: Sequelize.INTEGER
+      },
       mobile: {
         type: Sequelize.STRING
       },

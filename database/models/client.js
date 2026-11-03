@@ -10,9 +10,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      
+      Client.hasOne(models.ClientDetails, {
+        foreignKey: 'clientId',
+        onDelete:"CASCADE"
+      })
     }
   }
+  
   Client.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING
