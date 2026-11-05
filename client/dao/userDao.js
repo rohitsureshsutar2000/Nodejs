@@ -1,10 +1,10 @@
 const { Client } = require("../../database/models")
 
-exports.createClient = async (req, res) =>{
+exports.createClient = async (req, next) =>{
     try {
         const data = await Client.create(req.body)
     
-        return next(null, data)
+        next(null, data)
     } catch (error) {
          next(error)
     }
