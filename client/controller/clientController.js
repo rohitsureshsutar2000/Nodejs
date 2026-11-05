@@ -1,0 +1,137 @@
+const userService = require("../service/clientService")
+
+
+exports.createClient = (req, res) => {
+    createClient(req, res, (error, data) => {
+        if (error) {
+            return res.status(500).json({
+                success: false,
+                error: error || "Internal server error"
+            });
+        };
+        
+        return res.status(200).json({
+            success:true,
+            msg: "Client Created",
+            data: data
+        })
+    })
+}
+
+const createClient = (req, res, next) => {
+    userService.createClient(req, next);
+}
+
+exports.getClient = (req, res) => {
+    getAllClients(req, res, (error, data) => {
+        if (error) return error;
+
+        if (!data || data.length === 0) {
+            return res.status(204).send()
+        }
+
+        return res.status(200).json({
+            success: true,
+            data: data
+        })
+    })
+}
+
+const getAllClients = (req, res, next) => {
+    userService.getAllClients(req, next);
+}
+
+
+// exports.getUserById = (req, res) => {
+//     getUserById(req, res, (error, data) => {
+        // if (error) {
+        //     return res.status(500).json({
+        //         success: false,
+        //         error: error || "Internal server error"
+        //     });
+        // };
+//         if (!data) {
+//             res.status(204).json({
+//                 success: false,
+//                 error: 'Data not available'
+//             })
+//         }
+
+//         return res.status(200).json({
+//             success: true,
+//             data: data
+//         })
+//     })
+// }
+
+// const getUserById = (req, res, next) => {
+//     userService.getUserById(req, next);
+// }
+
+
+// exports.deleteUserById = (req, res) => {
+//     deleteUserById(req, res, (error, data) => {
+//         if (error) {
+//             return res.status(500).json({
+//                 success: false,
+//                 error: error || "Internal server error"
+//             });
+//         };
+
+//         return res.status(200).json({
+//             success: true,
+//         })
+//     })
+// }
+
+// const deleteUserById = (req, res, next) => {
+//     userService.deleteById(req, next);
+// }
+
+
+// exports.deleteAllUser = (req, res) => {
+//     deleteAllUser(req, res, (error, data, statuscode) => {
+//         if (error) {
+//             return res.status(statuscode || 500).json({
+//                 success: false,
+//                 error: error || "Internal server error"
+//             });
+//         };
+
+//         return res.status(200).json({
+//             success: true,
+//             msg: "User deleted"
+//         })
+//     })
+// }
+
+// const deleteAllUser = (req, res, next) => {
+//     userService.deleteUsers(req, next);
+// }
+
+// exports.updateUserDetails = (req, res) => {
+//     updateUserDetails(req, res, (error, data) => {
+//         if (error) {
+//             return res.status(500).json({
+//                 success: false,
+//                 error: error || "Internal server error"
+//             });
+//         };
+
+//         if (data && data[0] === 1) {
+//             return res.status(200).json({
+//                 success: true,
+//                 msg: "User updated"
+//             })
+//         }
+
+//         return res.status(404).json({
+//             success: false,
+//             msg: "User not updated"
+//         })
+//     })
+// }
+
+// const updateUserDetails = (req, res, next) => {
+//     userService.updateUserDetails(req, next);
+// }
