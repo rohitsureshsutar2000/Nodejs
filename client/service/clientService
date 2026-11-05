@@ -1,4 +1,4 @@
-const userDao = require("../dao/userDao")
+const userDao = require("../dao/clientDao")
 
 exports.getAllClients = (req, next) => {
     userDao.getAllClients(req, next);
@@ -7,19 +7,3 @@ exports.getAllClients = (req, next) => {
 exports.createClient = (req, next) => {
     userDao.createClient(req, next);
 }
-
-// exports.getUserById = (req, next) => {
-//     userDao.getUserById(req, next);
-// }
-
-// exports.deleteById = (req, next) => {
-//     userDao.deleteById(req, next);
-// }
-
-// exports.deleteUsers = (req, next) => {
-//     userDao.deleteAllUsers(req, next);
-// }
-
-// exports.updateUserDetails = (req, next) => {
-//     userDao.updateUserDetails(req, next);
-// }
