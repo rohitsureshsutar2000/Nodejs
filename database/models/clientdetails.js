@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here 
       // from details if u want to take parent table data add belongTo
-      
+      ClientDetails.belongsTo(models.Client,{
+        foreignKey:'clientId'
+      })
     }
   }
   ClientDetails.init({
